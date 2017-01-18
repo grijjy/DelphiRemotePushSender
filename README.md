@@ -20,9 +20,9 @@ The source code and related example repository is hosted on GitHub at [https://g
 
 # nghttp2
 
-Nghttp2 is a fairly established library for implementing the HTTP/2 protocol.  It handles all the compression and bitstreaming from ordinary HTTP to HTTP/2.
+[Nghttp2 is a fairly established library](http://nghttp2.org) for implementing the HTTP/2 protocol.  It handles all the compression and bitstreaming for implementing HTTP/2.
 
-The HTTP/2 protocol and it's header compression are rather complex and evolving so it is probably best not to try and implement this ourselves.
+The [HTTP/2 protocol](https://http2.github.io/) and its header compression are rather complex and evolving so it is probably best not to try and implement this ourselves.
 
 One of the great things about nghttp2 is you can utilize it entirely with memory buffers so it is a good match for our own [scalable client socket classes](https://github.com/grijjy/DelphiScalableClientSockets) for Windows and Linux.  This way we get the benefit of HTTP/2 but we don't have to rely on another implementation of sockets for scaling up our service. 
 
@@ -38,7 +38,7 @@ If you want to build the nghttp2 library for Windows to use in your Delphi appli
   	  `cmake --build . --config RELEASE`
 
 ## Delphi header translation
-Once completed you will have a nghttp2.dll.  We will need our [conversion for the header file for Delphi](https://github.com/grijjy/DelphiRemotePushSender/Nghttp2.pas) so we can use the nghttp2 methods directly.
+Once completed you will have a nghttp2.dll.  We will need our [conversion for the header file for Delphi](https://github.com/grijjy/DelphiRemotePushSender/blob/master/Nghttp2.pas) so we can use the nghttp2 methods directly.
 
 ## Apple APNS & iOS Prerequisites
 To use the `TgoRemotePushSender` class with Apple's Push Notification Service, we need to create a certificate and convert that certificate into 2 PEM files, one for the certificate and one the private key.  
@@ -68,7 +68,7 @@ openssl s_client -connect gateway.push.apple.com:2195 -cert APNS-cert.pem -key A
 ```
 # TgoRemotePushSender
 
-To use the `TgoRemotePushSender` class we need to know the Device Token for the target user's device.  You pass this value to the TgoRemotePushSender.Send method when sending your remote push notification.  This is true of both iOS and Android targets.
+To use the `TgoRemotePushSender` class we need to know the Device Token for the target user's device.  You pass this value to the `TgoRemotePushSender.Send` method when sending your remote push notification.  This is true of both iOS and Android targets.
 
 For Android you also need to specify the `TgoRemotePushSender.AndroidAPIKey`.  You can obtain an API Key by setting up cloud messaging on [Google's developer site](https://developers.google.com/cloud-messaging/).  This is also called the Server API Key under Firebase Cloud Messaging.
 
@@ -79,7 +79,7 @@ TgoRemotePushSender.APNSCertificate := TFile.ReadAllBytes(PathToCertificate.PEM)
 TgoRemotePushSender.APNSKey := TFile.ReadAllBytes(PathToKey.PEM);
 ```
   
-The structure of the class is fairly straightforward.  To send a remote push notification, call the Send method and provide the Device Token and also the Title and Message body for the payload.
+The structure of the class is fairly straightforward.  To send a remote push notification, call the `Send` method and provide the `DeviceToken` and also the `Title` and `Message` body for the payload.
 
 ```Delphi
   TgoRemotePushSender = class(TObject)
