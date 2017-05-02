@@ -6,7 +6,6 @@ uses
   Grijjy.RemotePush.Sender in '..\..\GrijjyFoundation\Grijjy.RemotePush.Sender.pas',
   Grijjy.Bson in '..\..\GrijjyFoundation\Grijjy.Bson.pas',
   Grijjy.Http in '..\..\GrijjyFoundation\Grijjy.Http.pas',
-  Grijjy.Http2 in '..\..\GrijjyFoundation\Grijjy.Http2.pas',
   Grijjy.SocketPool.Win in '..\..\GrijjyFoundation\Grijjy.SocketPool.Win.pas',
   Grijjy.Uri in '..\..\GrijjyFoundation\Grijjy.Uri.pas',
   Grijjy.Winsock2 in '..\..\GrijjyFoundation\Grijjy.Winsock2.pas',
